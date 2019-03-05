@@ -1,6 +1,6 @@
 // @ts-ignore
 $(function() {
-    let worker = new Worker('sw.js')
+    let worker = new Worker('worker.js')
 
     // @ts-ignore
     $('#go_timer').click(_ => {

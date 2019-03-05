@@ -1,4 +1,4 @@
-console.log("Hello from SW")
+console.log("Hello from worker")
 
 self.onmessage = msg => {
 	switch (msg.data.command) {
@@ -8,12 +8,12 @@ self.onmessage = msg => {
 }
 
 function startTimer(params) {
-	domlog("SW: start timer", params)
-	domlog("Notification.permission:", Notification.permission)
+	domlog("W: start timer", params)
+	domlog("W: Notification.permission:", Notification.permission)
 	setTimeout(() => {
 		try {
 			timerNotification(params.time)
-			domlog("SW: end timer")
+			domlog("W: end timer")
 			// @ts-ignore
 			postMessage({ command: "timer-end", params })
 		} catch (e) {
