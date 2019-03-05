@@ -24,7 +24,9 @@ function startTimer(params) {
 
 function timerNotification(time) {
 	if (Notification.permission != "granted") return
-	new Notification("Timer: " + time)
+	navigator.serviceWorker.ready.then(registration =>
+		registration.showNotification('Timer: ' + time)
+	)
 }
 
 function domlog(...params) {

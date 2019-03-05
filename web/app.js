@@ -1,5 +1,6 @@
 // @ts-ignore
 $(function() {
+    navigator.serviceWorker.register('sw.js');
     let worker = new Worker('worker.js')
 
     // @ts-ignore
