@@ -6,3 +6,8 @@ input[type=number] {
     width: 4em;
     text-align: right;
 }
+
+.preserve {
+    font-family: Consolas, monospace;
+    white-space: pre-wrap;
+}

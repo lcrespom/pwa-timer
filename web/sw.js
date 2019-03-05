@@ -8,9 +8,21 @@ self.onmessage = msg => {
 }
 
 function startTimer(params) {
-    console.log('SW: start timer', params)
+    domlog('SW: start timer', params)
     setTimeout(() => {
-        console.log('SW: end timer')
+        timerNotification(params.time)
+        domlog('SW: end timer')
+        // @ts-ignore
         postMessage({ command: 'timer-end', params })
     }, params.time * 1000)
+}
+
+function timerNotification(time) {
+    if (Notification.permission != 'granted') return
+    new Notification('Timer: ' + time)
+}
+
+function domlog(...params) {
+    // @ts-ignore
+    postMessage({ command: 'dom-log', params })
 }
